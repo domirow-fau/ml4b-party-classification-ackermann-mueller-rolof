@@ -9,7 +9,7 @@ st.header('Erste Aufgabe: Vorstellung')
 
 st.subheader('Unser Team')
 
-st.text('Hallo zusammen,\nwir sind Jan Ackermann, Simon Müller und Dominik Rolof.\nWir studieren Wirtschaftsinfo und wünschen uns allen ein erfolgreiches Semester.')
+st.text('Hallo zusammen,\nwir sind Jan Ackermann, Simon Müller und Dominik Rolof.\nWir studieren Wirtschaftsinfo und wünschen uns allen ein erfolgreiches Semester.\nUnser Projekt befasst sich mit der Klassifizierung einzelner Politiker in Parteien anhand ihrer Tweets')
 
 file = open('Philipp_Amthor.jl')
 data = js.load(file)
