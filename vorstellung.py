@@ -2,7 +2,6 @@
 
 import streamlit as st
 import json as js
-from PIL import Image
 
 st.title('Political Party Classification')
 
