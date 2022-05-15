@@ -2,7 +2,7 @@
 ## Take notes on related work for your project. They should include the following aspects:
 ### Search Process
 - Where have you searched?
-- - Google Scholar
+  - Google Scholar
 - Which terms have you used?
   - "machine learning political party classification"
 - Which Papers/Libraries/Blogs/Tutorials... are interesting for your project?
