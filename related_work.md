@@ -41,7 +41,7 @@
 - Content: Party Classification / NLP / Italian Parties / Vectorization
 
 # Sarcasm detection using machine learning algorithms in Twitter: A systematic review
-- Link: [https://web.p.ebscohost.com/ehost/pdfviewer/pdfviewer?vid=0&sid=11cc4957-bf7c-40b7-92f3-3b364496344e%40redis]
+- Link: https://web.p.ebscohost.com/ehost/pdfviewer/pdfviewer?vid=0&sid=11cc4957-bf7c-40b7-92f3-3b364496344e%40redis
 - Authors: Sarsam, Samer Muthana; Al-Samarraie, Hosam; Alzahrani, Ahmed Ibrahim; Wright, Bianca
 - Search engine: Business Source Complete
 - Term: machine learning and twitter
