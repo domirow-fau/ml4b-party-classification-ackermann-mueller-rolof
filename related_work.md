@@ -7,7 +7,7 @@
 
 # Analysis of Political Sentiment Orientations on Twitter
 - Link: https://www.sciencedirect.com/science/article/pii/S1877050920306669
-- Author: Mohd Zeeshan Ansaria, M. B. Aziza, M. O. Siddiquib, H. Mehraa, K. P. Singha
+- Authors: Mohd Zeeshan Ansaria, M. B. Aziza, M. O. Siddiquib, H. Mehraa, K. P. Singha
 - Search engine: Google Scholar
 - Term: political party classification twitter
 - Content: Political party classification via sentiment analysis of tweets for general elections in India (2019)
@@ -25,3 +25,17 @@
 - Search engine: Google
 - Term: ai python
 - Content: Machine Learning / Python
+
+# Sentiment Analysis and Political Party Classification in 2016 U.S. President Debates in Twitter
+- Link: http://d-scholarship.pitt.edu/34716/1/SentimentAnalysis.pdf
+- Authors: Tianyu Ding, Junyi Deng, Jingting Li, Yu-Ru Lin
+- Search engine: Google Scholar
+- Term: political party classification twitter
+- Content: Party Classification / Sentiment Analysis / U.S. President Debate 2016
+
+# Content-based Classification of Political Inclinations of Twitter Users
+- Link: https://re.public.polimi.it/retrieve/handle/11311/1071752/330986/DiGiovanniABCSS2018.pdf
+- Authors: Marco di Giovanni, Marco Brambilla, Stefano Ceri, Florian Daniel, Giorgia Ramponi
+- Search engine: Google Scholar
+- Term: political party classification twitter
+- Content: Party Classification / NLP / Italian Parties / Vectorization
