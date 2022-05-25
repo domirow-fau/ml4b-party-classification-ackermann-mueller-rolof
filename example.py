@@ -1,14 +1,16 @@
 # import json, os
 import streamlit as st
 
-st.header('Political Party Classification'
-st.subheader('Input: Tweet -> Output: Party')
+st.title('Political Party Classification')
+
+st.header('Input: Tweet -> Output: Party')
 
 input = st.text_input('Please enter tweet...')
-tweet = tweet = 'Eine Familie, die in #Niamey auf den Markt geht, muss doppelt so viel f/u00fcr einen Sack Hirse zahlen als vor einem Jahr. Zur Klimakrise kommt eine #Nahrungsmittelkrise hinzu, die Putins Angriffskrieg auf die Ukraine angeheizt hat. Wir m/u00fcssen jetzt entschlossen handeln. 2/3'
+tweet = 'Eine Familie, die in #Niamey auf den Markt geht, muss doppelt so viel f/u00fcr einen Sack Hirse zahlen als vor einem Jahr. Zur Klimakrise kommt eine #Nahrungsmittelkrise hinzu, die Putins Angriffskrieg auf die Ukraine angeheizt hat. Wir m/u00fcssen jetzt entschlossen handeln. 2/3'
 
-if input == tweet:
-    st.text = 'Partei: Bündnis 90 - Die Grünen'
+if (input == tweet):
+    st.text('Expected party of tweeter: Bündnis 90 - Die Grünen')
+
 
 
 
