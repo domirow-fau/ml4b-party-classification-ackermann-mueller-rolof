@@ -1,6 +1,7 @@
 import json_lines as jl
 import os
 import csv
+import re
 
 with open('tweets.csv', 'w', newline='', encoding="utf-8") as file:
     writer = csv.writer(file)
@@ -20,5 +21,15 @@ with open('tweets.csv', 'w', newline='', encoding="utf-8") as file:
                     break
 
         for item in text:
-            print(item + "\n")
-            writer.writerow([party, item])
+            item = re.sub(r'http\S+', '', item)
+            item = re.sub(r'\W', ' ', item)
+            item = re.sub(r'\s+[a-zA-Z]\s+', ' ', item)
+            item = re.sub(r'\^[a-zA-Z]\s+', ' ', item)
+            item = re.sub(r'\s+', ' ', item, flags=re.I)
+            item = re.sub(' RT|RT | TK|TK | amp','',item)
+            item = re.sub(r'^[^[a-zA-Z]]*', '', item)
+            item = item.lower()
+
+            if item != "" and item != " ":
+                print(item + "\n")
+                writer.writerow([party, item])
