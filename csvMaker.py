@@ -1,35 +1,60 @@
 import json_lines as jl
-import os
-import csv
 import re
+import csv
+import glob
 
-with open('tweets.csv', 'w', newline='', encoding="utf-8") as file:
-    writer = csv.writer(file)
+filterList = []
+filterStr = ''
 
-    files = os.listdir('data')
+while True:
+    filterStr = input("Enter parties to be filtered (comma-separated), type in a semicolon and press Enter\n")
+    if ';' in filterStr:
+        break
+
+filterStr = filterStr.replace(";", "")
+filterStr = filterStr.lower()
+filterList = filterStr.split(',')
+
+with open('tweets.csv', 'a', newline='', encoding="utf-8") as csv:
+    files = glob.glob('*.jl')
+    fileNum = 0
 
     for file in files:
-        party = input("Party of " + file + " (S / C / G / F / A / L): ")
-        
+
         text = []
 
-        with jl.open('data\\' + file) as data:
-            for item in data:
+        with jl.open('./' + file) as f:
+            i = 0
+            validParty = True
+            validTweet = False
+            for item in f:
+                party = item['account_data']['Partei']
+                if party.lower() in filterList:
+                    validParty = False
+                    break
                 if 'data' in item['response']:
                     for tweet in item['response']['data']:
-                        text.append(tweet['text'])
-                    break
+                        tweet = tweet['text']
+                        tweet = re.sub(r'http\S+', '', tweet)
+                        tweet = re.sub(r'\W', ' ', tweet)
+                        tweet = re.sub(r'\s+[a-zA-Z]\s+', ' ', tweet)
+                        tweet = re.sub(r'\^[a-zA-Z]\s+', ' ', tweet)
+                        tweet = re.sub(r'\s+', ' ', tweet, flags=re.I)
+                        tweet = re.sub(' RT|RT | TK|TK | amp','',tweet)
+                        tweet = re.sub(r'^[^[a-zA-Z]]*', '', tweet)
+                        tweet = tweet.lower()
+                        tweet = tweet.strip()
+                        if (tweet != '' and tweet != ' '):
+                            validTweet = True
+                        if validParty and validTweet:
+                            text.insert(i, party + '|')
+                            text.insert(i, text[i] + tweet + '\n')
+                            csv.write(text[i])
+                validParty = True
+                validTweet = False
+                i = i + 1
 
-        for item in text:
-            item = re.sub(r'http\S+', '', item)
-            item = re.sub(r'\W', ' ', item)
-            item = re.sub(r'\s+[a-zA-Z]\s+', ' ', item)
-            item = re.sub(r'\^[a-zA-Z]\s+', ' ', item)
-            item = re.sub(r'\s+', ' ', item, flags=re.I)
-            item = re.sub(' RT|RT | TK|TK | amp','',item)
-            item = re.sub(r'^[^[a-zA-Z]]*', '', item)
-            item = item.lower()
+        fileNum = fileNum + 1
+        print('Progress: ' + str((fileNum / len(files)) * 100) + '%')
 
-            if item != "" and item != " ":
-                print(item + "\n")
-                writer.writerow([party, item])
+    csv.close()
