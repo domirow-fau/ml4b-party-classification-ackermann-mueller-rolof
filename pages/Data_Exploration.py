@@ -7,8 +7,7 @@ st.title('Data Exploration')
 st.header('Unser Datensatz')
 
 st.subheader('Auszug aus dem Twitter-Datensatz')
-##
-file = open('domirow-fau/ml4b-party-classification-ackermann-mueller-rolof/Philipp_Amthor.jl')
+file = open('domirow-fau/ml4b-party-classification-ackermann-mueller-rolof/blob/main/Philipp_Amthor.jl')
 data = js.load(file)
 
 if st.button('Beispiel eines Datensatzes'):
@@ -35,5 +34,5 @@ image_titles = ["CDU", "CSU", "SPD", "Die_Gruenen", "FDP", "AfD", "Die_Linke", "
 
 for title in image_titles:
 	st.subheader(' \n' + title + ' - WordCloud')
-	image = Image.open('domirow-fau/ml4b-party-classification-ackermann-mueller-rolof/pages/wordclouds' + title + '_wordcloud.png')
+	image = Image.open('domirow-fau/ml4b-party-classification-ackermann-mueller-rolof/blob/main/pages/wordclouds' + title + '_wordcloud.png')
 	st.image(image)
