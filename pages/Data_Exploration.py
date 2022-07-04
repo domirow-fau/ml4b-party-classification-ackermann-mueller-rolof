@@ -34,5 +34,5 @@ image_titles = ["CDU", "CSU", "SPD", "Die_Gruenen", "FDP", "AfD", "Die_Linke", "
 
 for title in image_titles:
 	st.subheader(' \n' + title + ' - WordCloud')
-	image = Image.open(str(title + "_wordcloud.png"))
+	image = Image.open(str(title + "_wordcloud.PNG"))
 	st.image(image)
