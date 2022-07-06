@@ -28,10 +28,7 @@ file.close()
 st.subheader('Aus 8GB .jl wird 500MB .csv ...')
 
 st.text('--csv einfügen--')
-df = pd.read_csv('tweets.csv')
-df.loc[-1] = ['Party', 'Tweet']
-df.index = df.index + 1
-df.sort_index(inplace=True) 
+df = pd.read_csv('tweets.csv', header = None, names = ['Party', 'Tweet'])
 st.dataframe(df)
 
 st.header('WordClouds')
