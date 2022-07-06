@@ -1,6 +1,7 @@
 import streamlit as st
 from PIL import Image
 import json as js
+import pandas as pd
 
 st.title('Data Exploration')
 
@@ -27,7 +28,8 @@ file.close()
 st.subheader('Aus 8GB .jl wird 500MB .csv ...')
 
 st.text('--csv einfügen--')
-st.table('tweets.csv')
+df = pd.read_csv('tweets.csv')
+st.table(df.head())
 
 st.header('WordClouds')
 
