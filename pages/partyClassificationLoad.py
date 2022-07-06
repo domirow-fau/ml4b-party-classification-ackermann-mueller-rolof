@@ -19,14 +19,14 @@ X_train, X_test, y_train, y_test = train_test_split(processed_features, labels, 
 print("Naive Bayes")
 with open('NBsave.pkl', 'rb') as fid:
     clf = cPickle.load(fid)
-    st.write("Partei: " + str(clf.predict(vectorizer.transform([text]))) + "\n")
+    st.write("Partei: " + str(clf.predict(vectorizer.transform([text]))))
 
 print("Random Forest")
 with open('RFsave.pkl', 'rb') as fid:
     clf = cPickle.load(fid)
-    st.write("Partei: " + str(clf.predict(vectorizer.transform([text]))) + "\n")
+    st.write("Partei: " + str(clf.predict(vectorizer.transform([text]))))
 
 print("Support Vector Machines")
 with open('SVMsave.pkl', 'rb') as fid:
     clf = cPickle.load(fid)
-    st.write("Partei: " + str(clf.predict(vectorizer.transform([text]).toarray())) + "\n")
+    st.write("Partei: " + str(clf.predict(vectorizer.transform([text]).toarray())))
