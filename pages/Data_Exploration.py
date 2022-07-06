@@ -12,7 +12,7 @@ file = open('Philipp_Amthor.jl')
 data = js.load(file)
 
 if st.button('Beispiel eines Datensatzes'):
-    st.markdown(data)
+    st.json(data)
 option = st.selectbox('Möchtest du sehen, wem der Datensatz gehört?', ('Bitte auswählen...', 'Ja', 'Nein'))
 if (option == 'Ja'):
     st.text('Du wolltest es nicht anders...')
@@ -27,7 +27,6 @@ file.close()
 
 st.subheader('Aus 8GB .jl wird 500MB .csv ...')
 
-st.text('--csv einfügen--')
 df = pd.read_csv('tweets.csv', header = None, names = ['Party', 'Tweet'])
 st.dataframe(df)
 
