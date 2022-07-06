@@ -29,7 +29,7 @@ st.subheader('Aus 8GB .jl wird 500MB .csv ...')
 
 st.text('--csv einfügen--')
 df = pd.read_csv('tweets.csv')
-st.table(df)
+st.dataframe(df)
 
 st.header('WordClouds')
 
