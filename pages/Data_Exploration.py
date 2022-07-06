@@ -7,7 +7,7 @@ st.title('Data Exploration')
 st.header('Unser Datensatz')
 
 st.subheader('Auszug aus dem Twitter-Datensatz')
-file = open('Amthor.jl')
+file = open('Philipp_Amthor.jl')
 data = js.load(file)
 
 if st.button('Beispiel eines Datensatzes'):
