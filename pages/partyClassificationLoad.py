@@ -5,6 +5,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
 import pandas as pd
 import _pickle as cPickle
+import streamlit as st
 
 text = "test"
 
