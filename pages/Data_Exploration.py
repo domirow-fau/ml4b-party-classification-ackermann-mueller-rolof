@@ -32,10 +32,7 @@ st.header('WordClouds')
 
 image_titles = ["CDU", "CSU", "SPD", "Die_Gruenen", "FDP", "AfD", "Die_Linke", "Fraktionslos"]
 
-image = Image.open("data/FDP_wordcloud.png")
-st.image(image)
-
-#for title in image_titles:
-#	st.subheader(' \n' + title + ' - WordCloud')
-#	image = Image.open(str(title + "_wordcloud.jpeg"))
-#	st.image(image)
+for title in image_titles:
+	st.subheader(' \n' + title + ' - WordCloud')
+	image = Image.open(str("data/" + title + "_wordcloud.png"))
+	st.image(image)
