@@ -27,6 +27,7 @@ file.close()
 st.subheader('Aus 8GB .jl wird 500MB .csv ...')
 
 st.text('--csv einfügen--')
+st.table('tweets.csv')
 
 st.header('WordClouds')
 
