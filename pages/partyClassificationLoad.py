@@ -20,15 +20,19 @@ if  text != "":
 
     df = pd.read_csv('tweets.csv')
     df = df.fillna('')
-    processed_features = df.iloc[:,1].values
+    processed_features1 = df.iloc[:,1].values
+    processed_features2 = df.iloc[:,1].values
+    processed_features3 = df.iloc[:,1].values
     labels = df.iloc[:, 0].values
     vectorizer1 = TfidfVectorizer (max_features=2500, min_df=7, max_df=0.8)
     vectorizer2 = TfidfVectorizer (max_features=1520, min_df=7, max_df=0.8)
     vectorizer3 = TfidfVectorizer (max_features=802, min_df=7, max_df=0.8)
-    processed_features = vectorizer1.fit_transform(processed_features).toarray()
-    processed_features = vectorizer2.fit_transform(processed_features).toarray()
-    processed_features = vectorizer3.fit_transform(processed_features).toarray()
-    X_train, X_test, y_train, y_test = train_test_split(processed_features, labels, test_size=0.1, random_state=0)
+    processed_features1 = vectorizer1.fit_transform(processed_features1).toarray()
+    processed_features2 = vectorizer2.fit_transform(processed_features2).toarray()
+    processed_features3 = vectorizer3.fit_transform(processed_features3).toarray()
+    X_train, X_test, y_train, y_test = train_test_split(processed_features1, labels, test_size=0.1, random_state=0)
+    X_train, X_test, y_train, y_test = train_test_split(processed_features2, labels, test_size=0.1, random_state=0)
+    X_train, X_test, y_train, y_test = train_test_split(processed_features3, labels, test_size=0.1, random_state=0)
 
     if option == "Naive Bayes":
         print("Naive Bayes")
