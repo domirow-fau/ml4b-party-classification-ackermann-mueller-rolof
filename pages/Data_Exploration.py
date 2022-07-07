@@ -24,17 +24,18 @@ else:
 
 file.close()
 ##
+if st.button('Unsere Data Preparation'):
+	st.subheader('Aus 8GB .jl wird 500MB .csv ...')
 
-st.subheader('Aus 8GB .jl wird 500MB .csv ...')
+	df = pd.read_csv('tweets.csv', header = None, names = ['Party', 'Tweet'])
+	st.dataframe(df)
 
-df = pd.read_csv('tweets.csv', header = None, names = ['Party', 'Tweet'])
-st.dataframe(df)
+if st.button('Die meistgenutzten Wörter einzelner Parteien'):
+	st.subheader('WordClouds')
 
-st.header('WordClouds')
+	image_titles = ["CDU", "CSU", "SPD", "Die_Gruenen", "FDP", "AfD", "Die_Linke", "Fraktionslos"]
 
-image_titles = ["CDU", "CSU", "SPD", "Die_Gruenen", "FDP", "AfD", "Die_Linke", "Fraktionslos"]
-
-for title in image_titles:
-	st.subheader(' \n' + title + ' - WordCloud')
-	image = Image.open(str("wordclouds/" + title + "_wordcloud.png"))
-	st.image(image)
+	for title in image_titles:
+		st.subheader(' \n' + title + ' - WordCloud')
+		image = Image.open(str("wordclouds/" + title + "_wordcloud.png"))
+		st.image(image)
