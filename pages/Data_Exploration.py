@@ -32,6 +32,10 @@ if st.button('Unsere Data Preparation'):
 
 if st.button('Die meistgenutzten Wörter einzelner Parteien'):
 	st.subheader('WordClouds')
+	
+	st.subheader('CDU - WordCloud (ungefiltert)')
+	image = Image.open(str("wordclouds/CDU_wordcloud_uncleaned.png"))
+	st.image(image)
 
 	image_titles = ["CDU", "CSU", "SPD", "Die_Gruenen", "FDP", "AfD", "Die_Linke", "Fraktionslos"]
 
