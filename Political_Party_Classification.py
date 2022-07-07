@@ -15,7 +15,7 @@ st.text("Diese App analysiert eingegebene Tweets und sagt vorher,\nwelcher Parte
 
 option = st.radio("Bitte gewünschte Analyse-Methode wählen:", ["Naive Bayes", "Random Forest", "Support Vector Machines"], 0)
 
-n = st.slider("Bitte gewünschte Anzahl zu analysierender Tweets wählen:", 8, 15999, 8)
+n = st.slider("Bitte gewünschte Anzahl zu analysierender Tweets wählen:", 10, 15999, 10)
 
 text = st.text_input("Bitte den Tweet eingeben...", "")
 
