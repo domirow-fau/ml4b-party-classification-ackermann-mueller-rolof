@@ -7,7 +7,6 @@ from sklearn.metrics import accuracy_score
 import pandas as pd
 
 df = pd.read_csv('tweets.csv')
-df.drop(df.index[df.iloc[:, 0] == "A"], inplace=True)
 processed_features = df.iloc[:,1].values
 labels = df.iloc[:, 0].values
 vectorizer = TfidfVectorizer (max_features=2500, min_df=7, max_df=0.8)
@@ -30,8 +29,9 @@ predictions = clf.predict(X_test)
 print("Genauigkeit: " + str(accuracy_score(y_test, predictions)))
 print("Partei: " + str(clf.predict(vectorizer.transform([text]))) + "\n")
 
-#print("Support Vector Machines")
-#clf = SVC()
-#clf.fit(X_train,y_train)
-#predictions = clf.predict(X_test)
-#print("Genauigkeit: " + str(accuracy_score(y_test, predictions)))
+print("Support Vector Machines")
+clf = SVC()
+clf.fit(X_train,y_train)
+predictions = clf.predict(X_test)
+print("Genauigkeit: " + str(accuracy_score(y_test, predictions)))
+print("Partei: " + str(clf.predict(vectorizer.transform([text]).toarray())) + "\n")
