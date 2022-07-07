@@ -40,6 +40,6 @@ if st.button('Die meistgenutzten Wörter einzelner Parteien'):
 	image_titles = ["CDU", "CSU", "SPD", "Die_Gruenen", "FDP", "AfD", "Die_Linke", "Fraktionslos"]
 
 	for title in image_titles:
-		st.subheader(' \n' + title + ' - WordCloud')
+		st.subheader(' \n\n' + title + ' - WordCloud')
 		image = Image.open(str("wordclouds/" + title + "_wordcloud.png"))
 		st.image(image)
