@@ -15,7 +15,7 @@ st.text("Diese App analysiert eingegebene Tweets und sagt vorher,\nwelcher Parte
 
 option = st.radio("Bitte gewünschte Analyse-Methode wählen:", ["Naive Bayes", "Random Forest", "Support Vector Machines"], 0)
 
-n = st.slider("Bitte gewünschte Anzahl zu analysierender Tweets wählen:", 1, 15999, 1)
+n = st.slider("Bitte gewünschte Anzahl zu analysierender Tweets wählen:", 8, 15999, 1)
 
 text = st.text_input("Bitte den Tweet eingeben...", "")
 
@@ -29,7 +29,7 @@ if  text != "":
     #df.drop(df.index[df.iloc[:, 0] == "A"], inplace=True)
     processed_features = df.iloc[:,1].values
     labels = df.iloc[:, 0].values
-    vectorizer = TfidfVectorizer (max_features=2500, min_df=7, max_df=0.8)
+    vectorizer = TfidfVectorizer (max_features=2500, min_df=8, max_df=0.8)
     processed_features = vectorizer.fit_transform(processed_features).toarray()
     X_train, X_test, y_train, y_test = train_test_split(processed_features, labels, test_size=0.1, random_state=0)
         
