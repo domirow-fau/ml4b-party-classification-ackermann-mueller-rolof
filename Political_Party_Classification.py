@@ -24,9 +24,9 @@ if  text != "":
     df = pd.read_csv('tweets.csv')
     df = df.fillna('')
     # df = df.sample(n = 50000)
-    # if n > 0:
-        # df = df.sample(n)
-    # df.drop(df.index[df.iloc[:, 0] == "A"], inplace=True)
+    if n > 0:
+        df = df.sample(n)
+    #df.drop(df.index[df.iloc[:, 0] == "A"], inplace=True)
     processed_features = df.iloc[:,1].values
     labels = df.iloc[:, 0].values
     vectorizer = TfidfVectorizer (max_features=2500, min_df=7, max_df=0.8)
