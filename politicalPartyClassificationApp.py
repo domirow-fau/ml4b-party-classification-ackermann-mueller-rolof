@@ -7,6 +7,8 @@ from sklearn.metrics import accuracy_score
 import pandas as pd
 import streamlit as st
 
+st.set_page_config(page_title="Political Party Classification",)
+
 st.header("Political Party Classification")
 st.subheader("Analyse von Tweets")
 st.text("Diese App analysiert eingegebene Tweets und sagt vorher,\nwelcher Partei der Verfasser angehört")
