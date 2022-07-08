@@ -5,6 +5,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
 import pandas as pd
 import _pickle as cPickle
+import re
 import streamlit as st
 
 
@@ -15,6 +16,15 @@ st.text("In dieser Sektion wird der Tweet\nanhand vortrainierter Modelle analysi
 option = st.radio("Bitte gewünschte Analyse-Methode wählen:", ["Naive Bayes", "Random Forest", "Support Vector Machines"], 0)
 
 text = st.text_input("Bitte den Tweet eingeben...", "")
+text = re.sub(r'http\S+', '', text)
+text = re.sub(r'\W', ' ', text)
+text = re.sub(r'\s+[a-zA-Z]\s+', ' ', text)
+text = re.sub(r'\^[a-zA-Z]\s+', ' ', text)
+text = re.sub(r'\s+', ' ', text, flags=re.I)
+text = re.sub(' RT|RT | TK|TK | amp','',text)
+text = re.sub(r'^[^[a-zA-Z]]*', '', text)
+text = text.lower()
+text = text.strip()
 
 if  text != "":
 
@@ -40,7 +50,7 @@ if  text != "":
         with open('NBsave.pkl', 'rb') as fid:
             clf = cPickle.load(fid)
             #print("Partei: " + str(clf.predict(vectorizer.transform([text]))) + "\n")
-            st.write("Partei: " + str(clf.predict(vectorizer1.transform([text]))) + "\n")
+            st.write("Partei: " + str(clf.predict(vectorizer1.transform([text]))))
 
     elif option == "Random Forest":
         print("Random Forest")
@@ -57,3 +67,5 @@ if  text != "":
             clf = cPickle.load(fid)
             #print("Partei: " + str(clf.predict(vectorizer.transform([text]).toarray())) + "\n")
             st.write("Partei: " + str(clf.predict(vectorizer3.transform([text]).toarray())))
+            
+    text = ""
