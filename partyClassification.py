@@ -15,6 +15,16 @@ X_train, X_test, y_train, y_test = train_test_split(processed_features, labels, 
 
 text = "hier text eingeben"
 
+text = re.sub(r'http\S+', '', text)
+text = re.sub(r'\W', ' ', text)
+text = re.sub(r'\s+[a-zA-Z]\s+', ' ', text)
+text = re.sub(r'\^[a-zA-Z]\s+', ' ', text)
+text = re.sub(r'\s+', ' ', text, flags=re.I)
+text = re.sub(' RT|RT | TK|TK | amp','',text)
+text = re.sub(r'^[^[a-zA-Z]]*', '', text)
+text = text.lower()
+text = text.strip()
+
 print("Naive Bayes")
 clf = MultinomialNB()
 clf.fit(X_train,y_train)
