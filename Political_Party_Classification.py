@@ -73,3 +73,5 @@ if  text != "":
         st.write("Genauigkeit: %.2f" % (accuracy_score(y_test, predictions) * 100) + "%")
         #print("Partei: " + str(clf.predict(vectorizer.transform([text]).toarray())) + "\n")
         st.write("Partei: " + str(clf.predict(vectorizer.transform([text]).toarray())))
+        
+    text = ""
