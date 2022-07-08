@@ -5,6 +5,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score
 import pandas as pd
+import re
 import streamlit as st
 
 st.set_page_config(page_title="Political Party Classification",)
@@ -18,6 +19,15 @@ option = st.radio("Bitte gewünschte Analyse-Methode wählen:", ["Naive Bayes", 
 n = st.slider("Bitte gewünschte Anzahl zu analysierender Tweets wählen:", 100, 15999, 100)
 
 text = st.text_input("Bitte den Tweet eingeben...", "")
+text = re.sub(r'http\S+', '', text)
+text = re.sub(r'\W', ' ', text)
+text = re.sub(r'\s+[a-zA-Z]\s+', ' ', text)
+text = re.sub(r'\^[a-zA-Z]\s+', ' ', text)
+text = re.sub(r'\s+', ' ', text, flags=re.I)
+text = re.sub(' RT|RT | TK|TK | amp','',text)
+text = re.sub(r'^[^[a-zA-Z]]*', '', text)
+text = text.lower()
+text = text.strip()
 
 if  text != "":
 
