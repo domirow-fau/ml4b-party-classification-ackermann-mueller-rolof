@@ -5,9 +5,9 @@ import pandas as pd
 
 st.title('Data Exploration')
 
-st.header('Unser Datensatz')
+st.header('Unser Datenset')
 
-st.subheader('Auszug aus dem Twitter-Datensatz')
+st.subheader('Auszug aus dem Twitter-Datenset')
 file = open('Philipp_Amthor.jl')
 data = js.load(file)
 
